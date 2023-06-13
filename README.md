@@ -43,16 +43,81 @@ In T flip flop, "T" defines the term "Toggle". In SR Flip Flop, we provide only 
 
 
 ## Program:
+### SR FLIPFLOP
+module Ex5(s,r,clk,q,qbar);
+input s,r,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+	q=s|((~r)&q);
+end
+assign qbar=~q;
+endmodule
 
+### D FLIPFLOP
+module Ex5b(d,clk,q,qbar);
+input d,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+  q=d;
+end
+assign qbar=~q;
+endmodule  
+
+### JK FLIPFLOP
+module Exp5c(j,k,clk,q,qbar);
+input j,k,clk;
+output reg q;
+output qbar;
+always@ (posedge clk)
+begin 
+  q=(((~q)&j)|((~k)&q));
+end
+assign qbar=(~q);
+endmodule  
+
+### T FLIPFLOP
+module Exp5d(t,clk,q,qbar);
+input t,clk;
+output reg q;
+output qbar;
+always@ (posedge clk)
+begin 
+ q=(((~q)&t)|((~t)&q));
+end
+assign qbar=~q;
+endmodule
 
 ## RTL Schematic:
+### SR FLIPFLOP
+![243409401-e703801f-074e-4b1c-8d04-dba85b454903](https://github.com/NaveenSivamalai/Flipflops/assets/123792574/5181fcc8-d6e0-4b25-b85e-330532464107)
 
 
+### D FLIPFLOP
+![243409712-f8eb13bc-4384-4999-9ee6-a93979658b73](https://github.com/NaveenSivamalai/Flipflops/assets/123792574/965d73ab-44a1-4636-9cd5-5e7f9f198c40)
+
+### JK FLIPFLOP
+![243409811-c13d525c-f0e1-444c-b587-fd5c9fe30be1](https://github.com/NaveenSivamalai/Flipflops/assets/123792574/5d196ae4-f54e-4803-aab4-2cf73506358b)
+
+### T FLIPFLOP
+![243409874-12f5c4e8-d263-4c9d-b60a-4bf3e5c04dd9](https://github.com/NaveenSivamalai/Flipflops/assets/123792574/6dadf5aa-3fcc-460f-aef9-00c30b222275)
 
 
 ## Timing Diagram:
+### SR FLIPFLOP
+![243409465-b72a625b-0df3-4a92-b8a0-9898eb0c68ae](https://github.com/NaveenSivamalai/Flipflops/assets/123792574/d6c04de7-72bb-4703-b95f-5d309cdb4f05)
 
+### D FLIPFLOP
+![243409757-9f40f12d-ef3d-4e6d-8a59-17471d0f81d3](https://github.com/NaveenSivamalai/Flipflops/assets/123792574/ea947233-4c70-4539-97b5-c68989752fae)
 
+### JK FLIPFLOP
+![243409833-c3aafb8a-c1dd-465f-b3c7-3875205cdebc](https://github.com/NaveenSivamalai/Flipflops/assets/123792574/ff2b6d13-e92a-4431-b877-900620626e17)
+
+### T FLIPFLOP
+![243409918-0f32c76c-99e5-44b2-91f4-692f1f0fbe08](https://github.com/NaveenSivamalai/Flipflops/assets/123792574/af03050a-dfae-4110-8541-ffccd01f51b8)
 
 ## Result:
 Thus the SR, D, JK and T flipflops are implemented and the characteristic tables are verified.
